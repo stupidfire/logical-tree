@@ -1,184 +1,225 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+.app {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
 }
 
-#next-steps {
+.app-header {
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.app-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
+.app-reset {
+  background: none;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--color-ink-muted);
+}
+
+.app-reset:hover {
+  border-color: var(--color-ink-muted);
+  color: var(--color-ink);
+}
+
+.app-main {
+  flex: 1;
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4rem 2rem;
+  overflow-x: auto;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
+/* --- ルート作成フォーム --- */
 
-.ticks {
-  position: relative;
+.root-creation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  margin-top: 8rem;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.root-creation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+.root-creation-label {
+  font-family: var(--font-label);
+  font-size: 15px;
+  color: var(--color-ink-muted);
+}
+
+.root-creation-input {
+  font-size: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.root-creation-input:focus {
+  outline: none;
+  border-color: var(--color-abstract);
+}
+
+.root-creation-submit {
+  align-self: flex-start;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.root-creation-submit:disabled {
+  background: var(--color-border-strong);
+  cursor: not-allowed;
+}
+
+/* --- ツリー描画 --- */
+
+.tree-view {
+  display: flex;
+  justify-content: center;
+}
+
+.tree-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree-node-card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.tree-node-card {
+  position: relative;
+  min-width: 200px;
+  max-width: 260px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.tree-node-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  cursor: text;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.tree-node-textarea {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.6;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: var(--color-ink);
+  padding: 0;
+}
+
+.tree-node-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.tree-node-card:hover .tree-node-actions,
+.tree-node-card:focus-within .tree-node-actions {
+  opacity: 1;
+}
+
+.tree-node-action {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: none;
+}
+
+.tree-node-action--abstract {
+  color: var(--color-abstract);
+  background: var(--color-abstract-bg);
+  border-color: var(--color-abstract-border);
+}
+
+.tree-node-action--concrete {
+  color: var(--color-concrete);
+  background: var(--color-concrete-bg);
+  border-color: var(--color-concrete-border);
+}
+
+.tree-node-action--ghost {
+  color: var(--color-ink-muted);
+  border-color: var(--color-border);
+}
+
+.tree-node-action--danger {
+  color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+/* 子へつながる接続線。具体化方向＝緑系 */
+.tree-branch-children {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree-branch-connector {
+  width: 1px;
+  height: 28px;
+  background: var(--color-concrete-border);
+}
+
+.tree-branch-children-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-concrete-border);
+  position: relative;
+}
+
+.tree-branch-children-row > .tree-branch {
+  position: relative;
+}
+
+.tree-branch-children-row > .tree-branch::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 1px;
+  height: 8px;
+  background: var(--color-concrete-border);
 }
